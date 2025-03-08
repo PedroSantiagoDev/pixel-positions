@@ -5,15 +5,23 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
 use App\Models\Job;
+use App\Models\Tag;
+use Illuminate\View\View;
 
 class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $jobs = Job::all()->groupBy('featured');
+
+        return view('jobs.index', [
+            'featuredJobs' => $jobs[0],
+            'jobs' => $jobs[1],
+            'tags' => Tag::all(),
+        ]);
     }
 
     /**
