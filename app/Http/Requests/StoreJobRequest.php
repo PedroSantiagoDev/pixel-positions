@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreJobRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class StoreJobRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            
         ];
     }
 }
